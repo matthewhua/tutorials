@@ -1,6 +1,5 @@
 package com.baeldung.autoservice;
 
-import com.baeldung.autoservice.TranslationService;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,6 +10,7 @@ import static org.junit.Assert.assertEquals;
 
 public class TranslationServiceUnitTest {
 
+    // 这个可以代替Spring 加载
     private ServiceLoader<TranslationService> loader;
 
     @Before
@@ -33,5 +33,13 @@ public class TranslationServiceUnitTest {
 		
         String message = "message";
         assertEquals(message + " (translated by Google)", googleService.translate(message, null, null));
+    }
+
+    @Test
+    public void getAllTranslation() {
+        String message = "message";
+        loader.forEach(action -> {
+            System.out.println(action.translate(message, null, null));
+        });
     }
 }

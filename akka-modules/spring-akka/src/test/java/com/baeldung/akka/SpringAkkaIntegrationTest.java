@@ -39,7 +39,7 @@ public class SpringAkkaIntegrationTest extends AbstractJUnit4SpringContextTests 
 
     @After
     public void tearDown() {
-        system.shutdown();
+        system.terminate();
         system.awaitTermination();
     }
 

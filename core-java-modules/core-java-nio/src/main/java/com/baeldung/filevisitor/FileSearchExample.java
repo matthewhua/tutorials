@@ -48,7 +48,7 @@ public class FileSearchExample implements FileVisitor<Path> {
     }
 
     public static void main(String[] args) throws IOException {
-        Path startingDir = Paths.get("C:/Users/new/Desktop");
+        Path startingDir = Paths.get("C:/dev/test/new/Desktop");
         FileSearchExample crawler = new FileSearchExample("hibernate.txt", startingDir);
         Files.walkFileTree(startingDir, crawler);
     }
